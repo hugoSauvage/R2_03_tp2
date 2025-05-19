@@ -29,57 +29,57 @@ class Plateau{
 	this.ajouterPiece(new Tour('N', new Position("H8")));
     }
 
-	public Plateau(boolean init){
-		if (init == false){
-			pieces = new ArrayList<Piece>();
-			this.ajouterPiece(new Tour('B', new Position("A1")));
-			this.ajouterPiece(new Cavalier('B', new Position("B1")));
-			this.ajouterPiece(new Fou('B', new Position("C1")));
-			this.ajouterPiece(new Dame('B', new Position("D1")));
-			this.ajouterPiece(new Roi('B', new Position("E1")));
-			this.ajouterPiece(new Fou('B', new Position("F1")));
-			this.ajouterPiece(new Cavalier('B', new Position("G1")));
-			this.ajouterPiece(new Tour('B', new Position("H1")));
+	public Plateau(boolean cheat) {
+	    pieces = new ArrayList<Piece>();
+	    if (!cheat) {
+	        // Placement classique
+	        this.ajouterPiece(new Tour('B', new Position("A1")));
+	        this.ajouterPiece(new Cavalier('B', new Position("B1")));
+	        this.ajouterPiece(new Fou('B', new Position("C1")));
+	        this.ajouterPiece(new Dame('B', new Position("D1")));
+	        this.ajouterPiece(new Roi('B', new Position("E1")));
+	        this.ajouterPiece(new Fou('B', new Position("F1")));
+	        this.ajouterPiece(new Cavalier('B', new Position("G1")));
+	        this.ajouterPiece(new Tour('B', new Position("H1")));
 
-			for(char c = 'A'; c < 'I' ; c++){
-				this.ajouterPiece(new PionBlanc(new Position(c+"2")));
-				this.ajouterPiece(new PionNoir(new Position(c+"7")));
-			}
+	        for(char c = 'A'; c < 'I' ; c++){
+	            this.ajouterPiece(new PionBlanc(new Position(c+"2")));
+	            this.ajouterPiece(new PionNoir(new Position(c+"7")));
+	        }
 
-			this.ajouterPiece(new Tour('N', new Position("A8")));
-			this.ajouterPiece(new Cavalier('N', new Position("B8")));
-			this.ajouterPiece(new Fou('N', new Position("C8")));
-			this.ajouterPiece(new Dame('N', new Position("D8")));
-			this.ajouterPiece(new Roi('N', new Position("E8")));
-			this.ajouterPiece(new Fou('N', new Position("F8")));
-			this.ajouterPiece(new Cavalier('N', new Position("G8")));
-			this.ajouterPiece(new Tour('N', new Position("H8")));
-		}
-		else{
-			pieces = new ArrayList<Piece>();
-			this.ajouterPiece(new Tour('B', new Position("A1")));
-			this.ajouterPiece(new Favalier('B', new Position("B1")));
-			this.ajouterPiece(new Fou('B', new Position("C1")));
-			this.ajouterPiece(new Dame('B', new Position("D1")));
-			this.ajouterPiece(new Roi('B', new Position("E1")));
-			this.ajouterPiece(new Fou('B', new Position("F1")));
-			this.ajouterPiece(new Tavalier('B', new Position("G1")));
-			this.ajouterPiece(new Tour('B', new Position("H1")));
+	        this.ajouterPiece(new Tour('N', new Position("A8")));
+	        this.ajouterPiece(new Cavalier('N', new Position("B8")));
+	        this.ajouterPiece(new Fou('N', new Position("C8")));
+	        this.ajouterPiece(new Dame('N', new Position("D8")));
+	        this.ajouterPiece(new Roi('N', new Position("E8")));
+	        this.ajouterPiece(new Fou('N', new Position("F8")));
+	        this.ajouterPiece(new Cavalier('N', new Position("G8")));
+	        this.ajouterPiece(new Tour('N', new Position("H8")));
+	    } else {
+	        // Placement avec favaliers et tavaliers
+	        this.ajouterPiece(new Tour('B', new Position("A1")));
+	        this.ajouterPiece(new Favalier('B', new Position("B1")));
+	        this.ajouterPiece(new Fou('B', new Position("C1")));
+	        this.ajouterPiece(new Dame('B', new Position("D1")));
+	        this.ajouterPiece(new Roi('B', new Position("E1")));
+	        this.ajouterPiece(new Fou('B', new Position("F1")));
+	        this.ajouterPiece(new Tavalier('B', new Position("G1")));
+	        this.ajouterPiece(new Tour('B', new Position("H1")));
 
-			for (char c = 'A'; c < 'I'; c++) {
-				this.ajouterPiece(new PionBlanc(new Position(c + "2")));
-				this.ajouterPiece(new PionNoir(new Position(c + "7")));
-			}
+	        for(char c = 'A'; c < 'I' ; c++){
+	            this.ajouterPiece(new PionBlanc(new Position(c+"2")));
+	            this.ajouterPiece(new PionNoir(new Position(c+"7")));
+	        }
 
-			this.ajouterPiece(new Tour('N', new Position("A8")));
-			this.ajouterPiece(new Favalier('N', new Position("B8")));
-			this.ajouterPiece(new Fou('N', new Position("C8")));
-			this.ajouterPiece(new Dame('N', new Position("D8")));
-			this.ajouterPiece(new Roi('N', new Position("E8")));
-			this.ajouterPiece(new Fou('N', new Position("F8")));
-			this.ajouterPiece(new Tavalier('N', new Position("G8")));
-			this.ajouterPiece(new Tour('N', new Position("H8")));
-		}
+	        this.ajouterPiece(new Tour('N', new Position("A8")));
+	        this.ajouterPiece(new Favalier('N', new Position("B8")));
+	        this.ajouterPiece(new Fou('N', new Position("C8")));
+	        this.ajouterPiece(new Dame('N', new Position("D8")));
+	        this.ajouterPiece(new Roi('N', new Position("E8")));
+	        this.ajouterPiece(new Fou('N', new Position("F8")));
+	        this.ajouterPiece(new Tavalier('N', new Position("G8")));
+	        this.ajouterPiece(new Tour('N', new Position("H8")));
+	    }
 	}
 	
 	

@@ -4,6 +4,7 @@ import MG2D.*;
 import MG2D.geometrie.*;
 import java.awt.Font;
 
+
 class MainGraphique{
 
     public static final int tailleCase = 75;
@@ -70,20 +71,21 @@ class MainGraphique{
     }
     
     public static void main(String[] args){
-	Plateau p = new Plateau();
-	Fenetre f = new Fenetre("Jeu d'échecs", 8*MainGraphique.tailleCase, 10*MainGraphique.tailleCase);
-	Souris souris = f.getSouris();
-	char couleurQuiJoue = 'B';
+    // Utilise le plateau avec les nouvelles pièces (cheat = true)
+    Plateau p = new Plateau(true);
+    Fenetre f = new Fenetre("Jeu d'échecs", 8*MainGraphique.tailleCase, 10*MainGraphique.tailleCase);
+    Souris souris = f.getSouris();
+    char couleurQuiJoue = 'B';
 
-	Piece selectionne1;
-	Position selectionne2;
-	
-	dessinerPlateau(f, p, couleurQuiJoue);
-	f.rafraichir();
+    Piece selectionne1;
+    Position selectionne2;
+    
+    dessinerPlateau(f, p, couleurQuiJoue);
+    f.rafraichir();
 
-	selectionne1 = null;
-	selectionne2 = null;
-	while(true){
+    selectionne1 = null;
+    selectionne2 = null;
+    while(true){
 	    
 	    while((selectionne1 == null)){
 		while(!souris.getClicGauche()){try{Thread.sleep(10);}catch(Exception e){}}
@@ -95,8 +97,8 @@ class MainGraphique{
 			if(pieceSelectionne.getCouleur() == couleurQuiJoue){
 			    if(selectionne1 == null)
 				selectionne1 = p.getCase(indX, indY);
-			    else
-				selectionne2 = new Position(indX, indY);
+			    // else
+				// selectionne2 = new Position(indX, indY);
 			}
 		    }
 		}
